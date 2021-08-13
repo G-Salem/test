@@ -22,16 +22,19 @@ export class CarnetDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
 
     this.contactService.getContact(this.id).subscribe(data => {
-      console.log(data);
       this.contact = data;
     }, err => {
       console.log(err);
     });
+    this.getAdresses();
+
+  }
+  getAdresses() {
     this.adresseService.getAddresss().subscribe(res => {
       this.adresses = res;
+      this.listeadresse = [];
       this.adresses.forEach(element => {
         if (element.ContactId == this.id) {
           this.listeadresse.push(element);
@@ -41,20 +44,24 @@ export class CarnetDetailComponent implements OnInit {
           console.log(error);
         });
     });
-    console.log(this.listeadresse);
 
   }
+  modifierAdresse(contactAdresse: Address) {
 
-  modifierAdresse(index: number) {
-    const dialogRef = this.dialog.open(ModifierAdressModalComponent);
-//nchoufou kifech na3mlou auto ta3mir lel form
+    const dialogRef = this.dialog.open(ModifierAdressModalComponent, {
+      data: { contactAdresse }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAdresses();
+    });
+
+
   }
-  supprimerAdresse(index: number) {
-    console.log(index);
-    console.log(this.listeadresse[index].id);
-
-    this.adresseService.deleteAddress(this.listeadresse[index].id).subscribe(data => {
+  supprimerAdresse(id: number) {
+// confirm
+    this.adresseService.deleteAddress(id).subscribe(data => {
       console.log(data);
+      this.getAdresses();
     }, err => {
       console.log(err);
 

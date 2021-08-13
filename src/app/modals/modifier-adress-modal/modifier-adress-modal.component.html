@@ -3,8 +3,13 @@
   <form [formGroup]="adresseForm" (ngSubmit)="onSubmit()">
 
 <mat-form-field appearance="fill">
+  <input matInput formControlName="id" hidden>
+  <input matInput formControlName="ContactId" hidden>
+
+
+
   <mat-label>Choisir le type de votre adresse</mat-label>
-  <select matNativeControl required formControlName="typeAdresse">
+  <select matNativeControl required formControlName="TypeAdresse">
     <option value="Domicile">Domicile</option>
     <option value="Travail">Travail</option>
     <option value="Secours">Secours</option>
@@ -13,7 +18,7 @@
 
 <mat-form-field appearance="fill">
   <mat-label>Choisir le type de voie</mat-label>
-  <select matNativeControl required formControlName="typeVoie">
+  <select matNativeControl required formControlName="TypeVoie">
     <option value="Droite">Droite</option>
     <option value="Gauche">Gauche</option>
   </select>
@@ -21,31 +26,36 @@
 
     <div mat-form-field appearance="fill">
       <div mat-label>Saisir votre rue</div>
-      <input matInput placeholder="rue" formControlName="rue">
+      <input matInput placeholder="rue" formControlName="Rue">
     </div>
     <div mat-form-field appearance="fill">
       <div mat-label>Saisir le numéro </div>
-      <input matInput placeholder="num" formControlName="num">
+      <input matInput placeholder="num" formControlName="Numero">
     </div>
     <div mat-form-field appearance="fill">
       <div mat-label>Saisir votre ville
         </div>
-      <input matInput placeholder="ville" formControlName="ville">
+      <input matInput placeholder="ville" formControlName="Ville">
     </div>
     <div mat-form-field appearance="fill">
       <div mat-label>Saisir le Cp de votre ville </div>
-      <input matInput placeholder="cp" formControlName="cp">
+      <input matInput placeholder="cp" formControlName="Cp">
     </div>
     <div mat-form-field appearance="fill">
       <div mat-label>Saisir le Pays </div>
-      <input matInput placeholder="pays" formControlName="pays">
+      <input matInput placeholder="pays" formControlName="Pays">
     </div>
     <div mat-form-field appearance="fill">
       <div mat-label>Saisir le numéro de telephone </div>
       <input matInput placeholder="NumTel" formControlName="NumTel">
     </div>
+    <div mat-form-field appearance="fill">
+      <div mat-label>Commentaire </div>
+      <input matInput placeholder="Commentaire" formControlName="Commentaire">
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button type="submit" [disabled]="!adresseForm.valid">Submit</button>
+    </div>
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-button type="submit" [disabled]="!adresseForm.valid">Submit</button>
-</div>
+

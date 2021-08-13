@@ -11,22 +11,22 @@
 
         <mat-icon>calendar_today</mat-icon> {{contact?.DateNaissance}} <br>
 
-        <div *ngFor="let PA of listeadresse, let  i = index">
+        <div *ngFor="let contactAdresse of listeadresse, let  i = index">
           <div class="container">
             <div class="row">
               <div class="col sm 4">
                 <mat-card>
                   <mat-icon>home</mat-icon>
-                  {{PA.Numero}}
-                  {{PA.Rue}}
-                  {{PA.Cp}}
-                  {{PA.Ville}}
-                  {{PA.Pays}}
-                  {{PA.Commentaire}}
+                  {{contactAdresse.Numero}}
+                  {{contactAdresse.Rue}}
+                  {{contactAdresse.Cp}}
+                  {{contactAdresse.Ville}}
+                  {{contactAdresse.Pays}}
+                  {{contactAdresse.Commentaire}}
                 </mat-card>
                 <mat-card-footer>
-                  <mat-icon (click)="supprimerAdresse(i)">delete</mat-icon>
-                  <mat-icon (click)="modifierAdresse(i)">update</mat-icon>
+                  <mat-icon (click)="supprimerAdresse(contactAdresse.id)">delete</mat-icon>
+                  <mat-icon (click)="modifierAdresse(contactAdresse)">update</mat-icon>
 
                 </mat-card-footer>
               </div>

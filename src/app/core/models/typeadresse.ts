@@ -1,5 +1,5 @@
 export enum Typeadresse {
-  'Travail',
-  'Domicile',
-  'Secours'
+  Travail = 'Travail',
+  Domicile = 'Domicile',
+  Secours = 'Secours'
 }

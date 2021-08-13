@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Address } from '../models/address';
 
 export abstract class AbstractAddressService {
-  contactsUrl = 'api/addresses';  // URL to web api
+  adressesUrl = 'api/addresses';  // URL to web api
 
   abstract getAddresss (): Observable<Address[]>;
   abstract addAddress (address: Address): Observable<Address>;

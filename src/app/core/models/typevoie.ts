@@ -1,4 +1,4 @@
 export enum TypeVoie{
-  droite,
-  gauche
+  droite= 'Droite',
+  gauche='Gauche'
 }

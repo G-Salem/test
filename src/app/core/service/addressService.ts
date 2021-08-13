@@ -17,7 +17,7 @@ export class AddressService extends AbstractAddressService {
   }
 
   getAddresss (): Observable<Address[]> {
-    return this.http.get<Address[]>(this.contactsUrl).pipe(
+    return this.http.get<Address[]>(this.adressesUrl).pipe(
    // tap(data => console.log(data)), // eyeball results in the console
       catchError(this.handleError)
     );
@@ -27,13 +27,13 @@ export class AddressService extends AbstractAddressService {
   addAddress (address: Address): Observable<Address> {
     const adresse = { name };
 
-    return this.http.post<Address>(this.contactsUrl, adresse, cudOptions).pipe(
+    return this.http.post<Address>(this.adressesUrl, adresse, cudOptions).pipe(
       catchError(this.handleError)
     );
   }
 
   deleteAddress (id: Number): Observable<Address> {
-    const url = `${this.contactsUrl}/${id}`;
+    const url = `${this.adressesUrl}/${id}`;
 
     return this.http.delete<Address>(url, cudOptions).pipe(
       catchError(this.handleError)
@@ -42,14 +42,14 @@ export class AddressService extends AbstractAddressService {
 
 
   updateAddress (adresse: Address): Observable<Address> {
-    return this.http.put<Address>(this.contactsUrl, adresse, cudOptions).pipe(
+    return this.http.put<Address>(this.adressesUrl, adresse, cudOptions).pipe(
       catchError(this.handleError)
     );
   }
 
   // This get-by-id will 404 when id not found
   getAddress(id: number): Observable<Address> {
-    const url = `${this.contactsUrl}/${id}`;
+    const url = `${this.adressesUrl}/${id}`;
     return this.http.get<Address>(url).pipe(
       catchError(this.handleError)
     );

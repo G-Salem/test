@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddressService } from 'src/app/core/service/addressService';
 
 @Component({
@@ -11,33 +11,43 @@ import { AddressService } from 'src/app/core/service/addressService';
 export class ModifierAdressModalComponent implements OnInit {
 
   adresseForm = this.fb.group({
-    typeAdresse: ['', Validators.required],
-    typeVoie: ['', Validators.required],
-    rue: ['', Validators.required],
-    num: ['', Validators.required],
-    ville: ['', Validators.required],
-    cp: ['', Validators.required],
-    pays: ['', Validators.required],
-    numTel: ['', Validators.required],
+    TypeAdresse: ['', Validators.required],
+    TypeVoie: ['', Validators.required],
+    Rue: ['', Validators.required],
+    Numero: ['', Validators.required],
+    Ville: ['', Validators.required],
+    Cp: ['', Validators.required],
+    Pays: ['', Validators.required],
+    NumTel: ['', Validators.required],
+    id: [],
+    ContactId: [],
+    Commentaire: ['']
 
   });
 
-  constructor(private fb: FormBuilder,private dialog: MatDialog, private adresseService: AddressService) { }
+
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private dialog: MatDialog, private adresseService: AddressService) { }
 
   ngOnInit(): void {
+    console.log(this.data.contactAdresse);
+    this.adresseForm.setValue(this.data.contactAdresse);
 
   }
+
   onSubmit() {
 
-    // this.adresseService.updateAddress(this.adresseForm.value).subscribe(
-    //   data => {
-    //     this.dialog.closeAll();
-    //     console.log(data);
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
+
+    this.adresseService.updateAddress(this.adresseForm.value).subscribe(
+      res => {
+        console.log(res);
+        this.dialog.closeAll();
+
+      },
+      error => {
+        console.log(error);
+      }
+    );
 
     //ma mchetech ama ma na3refch 3lech ma mchetech
   }

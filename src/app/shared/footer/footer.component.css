@@ -1,0 +1,14 @@
+.footer-nav{
+  line-height: 85px;
+  margin: 0 auto;
+
+}
+
+.footer {
+  background-image: url('../../../assets/bgdark.jpg');
+
+  padding: 10px;
+  margin: 0px;
+  background-attachment: fixed;
+  position: relative;
+  line-height: 20px;}

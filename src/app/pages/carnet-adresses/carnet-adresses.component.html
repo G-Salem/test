@@ -1,0 +1,29 @@
+<div style="text-align: center;">
+  <div class="container ">
+    <div style="text-align: center;">
+      <h1>Bienvenue dans votre carnet d'adresse</h1>
+    </div>
+    <div class="row">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchExpl" (keyup)="search($event)"
+        (focus)="cleanBtnControler()" autocomplete="on" placeholder="&#61442;  Chercher votre contact">
+      <span *ngIf="showClearBtn" class="input-group-btn">
+        <button class="btn" (click)="cleanSearch()" type="button"><i class="fa fa-remove"></i></button>
+      </span>
+      <button mat-button (click)="openDialog()">Ajouter un contact </button>
+
+    </div>
+    <br>
+    <div class="row">
+      <ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-balham"
+      [rowData]="contactList"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      (gridReady)="onGridReady($event)" [editType]="'fullRow'"
+      (rowEditingStopped)="onRowEditingStopped($event)"
+      [frameworkComponents]="frameworkComponents">
+      </ag-grid-angular>
+    </div>
+  </div>
+
+  <!-- <button  class="btn" type="button" (click)="open(AddContact)"><i class="fa fa-add"> Ajouter un contact</i></button> -->
+</div>

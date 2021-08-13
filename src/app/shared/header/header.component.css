@@ -1,0 +1,15 @@
+h1{
+  background-image: url('../../../assets/bgdark.jpg');
+  padding: 20px;
+  margin: 0px;
+  height: 50px;
+}
+
+img{
+  width: auto;
+  height:50px ;
+}
+.btn{
+  text-decoration: #66FCF1 ;
+  color: #66FCF1;
+}

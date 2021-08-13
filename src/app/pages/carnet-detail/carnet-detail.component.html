@@ -1,0 +1,44 @@
+<div style="text-align: center;">
+  <div class="container">
+    <mat-card>
+
+      <mat-card-header>
+        <mat-card-title>{{contact?.Nom}} {{contact?.Prenom }} details :</mat-card-title>
+        <mat-card-subtitle>{{listeadresse[0]?.NumTel}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+
+        <mat-icon>calendar_today</mat-icon> {{contact?.DateNaissance}} <br>
+
+        <div *ngFor="let PA of listeadresse, let  i = index">
+          <div class="container">
+            <div class="row">
+              <div class="col sm 4">
+                <mat-card>
+                  <mat-icon>home</mat-icon>
+                  {{PA.Numero}}
+                  {{PA.Rue}}
+                  {{PA.Cp}}
+                  {{PA.Ville}}
+                  {{PA.Pays}}
+                  {{PA.Commentaire}}
+                </mat-card>
+                <mat-card-footer>
+                  <mat-icon (click)="supprimerAdresse(i)">delete</mat-icon>
+                  <mat-icon (click)="modifierAdresse(i)">update</mat-icon>
+
+                </mat-card-footer>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </mat-card-content>
+      <mat-card-footer>
+        <!-- <button mat-button (click)="supprimeradresse(person.id)">Supprimer l'adresse de ce contact</button>
+        <button mat-button (click)="modifieradresse(person.id)">Modifier ce contact</button> -->
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

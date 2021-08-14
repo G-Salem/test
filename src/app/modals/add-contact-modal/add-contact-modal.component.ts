@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactService } from 'src/app/core/service/contactService';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-contact-modal',
@@ -24,10 +25,19 @@ export class AddContactModalComponent implements OnInit {
     this._contactService.addContact(this.contactForm.value).subscribe(
       data => {
         this.dialog.closeAll();
-        console.log(data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Succés',
+          text: 'Contact ajouté avec succés'
+        });
       },
       error => {
         console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: "Un probleme est survenu lors de l'ajout du contact!",
+        });
       }
     );
   }

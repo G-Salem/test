@@ -6,6 +6,7 @@ import { ContactService } from 'src/app/core/service/contactService';
 import { detailContactCustomRenderer } from 'src/app/custom-renderers/detail-contact-custom-renderer';
 import { EditContactCustomRenderer } from 'src/app/custom-renderers/edit-contact-custom-renderer';
 import { AddContactModalComponent } from 'src/app/modals/add-contact-modal/add-contact-modal.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carnet-adresses',
@@ -30,15 +31,24 @@ export class CarnetAdressesComponent implements OnInit {
         let isDeleteKey = params.event.keyCode === 46;
         // Delete selected rows with back space
         if (isBackspaceKey || isDeleteKey) {
-          console.log(params.api.getSelectedRows());
-          this._contactService.deleteContact(selectedRow.id).subscribe(
-            data => {
-              this.getContact();
-            },
-            error => {
-              console.log(error);
+          Swal.fire({
+            title: 'Voulez vous supprimer ce contact ?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: `Supprimer`,
+            denyButtonText: `Annuler`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this._contactService.deleteContact(selectedRow.id).subscribe(
+                data => {
+                  this.getContact();
+                },
+                error => {
+                }
+              );
+              Swal.fire('Contact supprimé avec succés !', '', 'success')
             }
-          );
+          });
         }
       }
     }
@@ -71,7 +81,6 @@ export class CarnetAdressesComponent implements OnInit {
       headerName: 'Voir les details',
       cellRenderer: 'buttonDetailRenderer',
       cellRendererParams: {
-        onClick: this.contactDetail(),
         label: 'details'
       },
     },
@@ -82,6 +91,7 @@ export class CarnetAdressesComponent implements OnInit {
   contactListFilter: Contact[];
   showClearBtn = false;
   api: any;
+
   ngOnInit(): void {
     this.getContact();
   }
@@ -91,6 +101,7 @@ export class CarnetAdressesComponent implements OnInit {
       this.contactListFilter = this.contactList;
     });
   }
+
   openDialog() {
     const dialogRef = this.dialog.open(AddContactModalComponent);
 
@@ -98,6 +109,7 @@ export class CarnetAdressesComponent implements OnInit {
       this.getContact();
     });
   }
+
   onEditButtonClick(params) {
     this.api.startEditingCell({
       rowIndex: params.rowIndex,
@@ -105,13 +117,21 @@ export class CarnetAdressesComponent implements OnInit {
     });
   }
   onRowEditingStopped(event) {
-    console.log(event.data);
+    // swal
     this._contactService.updateContact(event.data).subscribe(
       data => {
-        console.log(data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Succés',
+          text: 'Contact mis à jours avec succés'
+        });
       },
       error => {
-        console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: "Un probleme est survenu lors de la mise à jours du contact!",
+        });
       }
     );
   }
@@ -134,11 +154,6 @@ export class CarnetAdressesComponent implements OnInit {
   }
   onGridReady(params) {
     this.api = params.api;
-  }
-  ////////////
-  contactDetail(){
-console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
   }
 }
 

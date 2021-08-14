@@ -1,5 +1,9 @@
 <div style="text-align: center;">
   <div class="container">
+   <div style="text-align: center;">
+    <button mat-button (click)="openDialog(contact?.id)">Ajouter une adresse</button>
+   </div>
+
     <mat-card>
 
       <mat-card-header>
@@ -26,19 +30,14 @@
                 </mat-card>
                 <mat-card-footer>
                   <mat-icon (click)="supprimerAdresse(contactAdresse.id)">delete</mat-icon>
-                  <mat-icon (click)="modifierAdresse(contactAdresse)">update</mat-icon>
+                  <mat-icon (click)="modifierAdresse(contactAdresse)">edit</mat-icon>
 
                 </mat-card-footer>
               </div>
             </div>
           </div>
         </div>
-
       </mat-card-content>
-      <mat-card-footer>
-        <!-- <button mat-button (click)="supprimeradresse(person.id)">Supprimer l'adresse de ce contact</button>
-        <button mat-button (click)="modifieradresse(person.id)">Modifier ce contact</button> -->
-      </mat-card-footer>
     </mat-card>
   </div>
 </div>

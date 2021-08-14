@@ -25,9 +25,8 @@ export class AddressService extends AbstractAddressService {
 
 
   addAddress (address: Address): Observable<Address> {
-    const adresse = { name };
 
-    return this.http.post<Address>(this.adressesUrl, adresse, cudOptions).pipe(
+    return this.http.post<Address>(this.adressesUrl, address, cudOptions).pipe(
       catchError(this.handleError)
     );
   }

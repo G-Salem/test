@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddressService } from 'src/app/core/service/addressService';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modifier-adress-modal',
@@ -40,16 +41,23 @@ export class ModifierAdressModalComponent implements OnInit {
 
     this.adresseService.updateAddress(this.adresseForm.value).subscribe(
       res => {
-        console.log(res);
         this.dialog.closeAll();
-
+        Swal.fire({
+          icon: 'success',
+          title: 'Succés',
+          text: 'Adresse mise à jours avec succés'
+        });
       },
       error => {
         console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: "Un probleme est survenu lors de la mise à jours de l'adresse!",
+        });
       }
     );
 
-    //ma mchetech ama ma na3refch 3lech ma mchetech
   }
 
 

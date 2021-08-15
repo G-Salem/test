@@ -28,6 +28,7 @@ import { AddAdressModalComponent } from './modals/add-adress-modal/add-adress-mo
 import { EditContactCustomRenderer } from './custom-renderers/edit-contact-custom-renderer';
 import { AddressService } from './core/service/addressService';
 import { ModifierAdressModalComponent } from './modals/modifier-adress-modal/modifier-adress-modal.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ModifierAdressModalComponent } from './modals/modifier-adress-modal/mod
   imports: [
     BrowserModule,
     RouterModule,
+    MatToolbarModule,
     AppRoutingModule,
     MatCardModule,
     BrowserAnimationsModule,
@@ -51,7 +53,8 @@ import { ModifierAdressModalComponent } from './modals/modifier-adress-modal/mod
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     Ng2SearchPipeModule,
     FormsModule,
     HttpClientInMemoryWebApiModule,AgGridModule,
@@ -59,8 +62,7 @@ import { ModifierAdressModalComponent } from './modals/modifier-adress-modal/mod
     MatInputModule,
     ModalModule,
     AgGridModule.withComponents([EditContactCustomRenderer]),
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
-
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [InMemoryDataService,CarnetAdressesComponent,ContactService,AddressService],
   bootstrap: [AppComponent]

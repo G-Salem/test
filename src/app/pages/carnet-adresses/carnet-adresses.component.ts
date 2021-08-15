@@ -24,6 +24,7 @@ export class CarnetAdressesComponent implements OnInit {
     }
   }
   defaultColDef = {
+    width: 162 ,
     suppressKeyboardEvent: params => {
       const selectedRow = params.api.getSelectedRows()[0];
       if (!params.editing && selectedRow) {
@@ -127,6 +128,7 @@ export class CarnetAdressesComponent implements OnInit {
         });
       },
       error => {
+
         Swal.fire({
           icon: 'error',
           title: 'Erreur',

@@ -1,0 +1,17 @@
+p{
+  font-size: large;
+  font: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+  height: 300px;
+  text-align: center;
+}
+.imgSlider{
+  width: 70%;
+  height: 500px;
+  text-align:center;
+  margin-left: 15%;
+  padding:0;
+}

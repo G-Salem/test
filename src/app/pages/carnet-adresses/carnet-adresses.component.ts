@@ -24,7 +24,8 @@ export class CarnetAdressesComponent implements OnInit {
     }
   }
   defaultColDef = {
-    width: 162 ,
+    width: 233 ,
+    cellStyle: {textAlign: 'center'},
     suppressKeyboardEvent: params => {
       const selectedRow = params.api.getSelectedRows()[0];
       if (!params.editing && selectedRow) {
@@ -57,6 +58,7 @@ export class CarnetAdressesComponent implements OnInit {
   columnDefs = [
     {
       field: "",
+      width: 50,
       checkboxSelection: true
     },
     {
@@ -71,11 +73,11 @@ export class CarnetAdressesComponent implements OnInit {
       editable: true
     },
     {
-      headerName: 'Edit',
+      headerName: 'Modifier',
       cellRenderer: 'buttonRenderer',
       cellRendererParams: {
         onClick: this.onEditButtonClick.bind(this),
-        label: 'Edit'
+        label: 'Modifer'
       },
     },
     {

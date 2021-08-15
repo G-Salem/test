@@ -1,4 +1,7 @@
-
+.container{
+  background-color: #405065;
+  height: 8%;
+}
 img{
   margin-top: 30px;
   width: 60px;

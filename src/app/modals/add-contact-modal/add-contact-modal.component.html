@@ -1,20 +1,20 @@
-<h1 mat-dialog-title>Ajouter un contact</h1>
-<div mat-dialog-content>
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <div mat-form-field appearance="fill">
-      <div mat-label>Saisir votre nom</div>
-      <input matInput placeholder="nom" formControlName="Nom">
-    </div>
-    <div mat-form-field appearance="fill">
-      <div mat-label>Saisir votre prenom</div>
-      <input matInput placeholder="prenom" formControlName="Prenom">
-    </div>
-    <div mat-form-field appearance="fill">
-      <div mat-label>Saisir votre date de naissance</div>
-      <input matInput placeholder="date de naissance" formControlName="DateNaissance">
-    </div>
-      <div mat-dialog-actions>
+  <h1 mat-dialog-title>Ajouter un contact</h1>
+  <div mat-dialog-content class="general">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <div mat-label>Saisir votre nom</div>
+        <input matInput placeholder="nom" formControlName="Nom">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <div mat-label>Saisir votre prenom</div>
+        <input matInput placeholder="prenom" formControlName="Prenom">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <div mat-label>Saisir votre date de naissance</div>
+        <input matInput placeholder="date de naissance" formControlName="DateNaissance">
+      </mat-form-field>
+      <mat-dialog-actions>
         <button mat-button type="submit" [disabled]="!contactForm.valid">Submit</button>
-    </div>
-  </form>
-</div>
+      </mat-dialog-actions>
+    </form>
+  </div>

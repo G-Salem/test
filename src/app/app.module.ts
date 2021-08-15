@@ -22,6 +22,7 @@ import { CarnetDetailComponent } from './pages/carnet-detail/carnet-detail.compo
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import { NgImageSliderModule } from 'ng-image-slider';
 import { ContactService } from './core/service/contactService';
 import { AddContactModalComponent } from './modals/add-contact-modal/add-contact-modal.component';
 import { AddAdressModalComponent } from './modals/add-adress-modal/add-adress-modal.component';
@@ -29,6 +30,7 @@ import { EditContactCustomRenderer } from './custom-renderers/edit-contact-custo
 import { AddressService } from './core/service/addressService';
 import { ModifierAdressModalComponent } from './modals/modifier-adress-modal/modifier-adress-modal.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AideComponent } from './pages/aide/aide.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     CarnetDetailComponent,
     AddContactModalComponent,
     AddAdressModalComponent,
-    ModifierAdressModalComponent
+    ModifierAdressModalComponent,
+    AideComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule,
+    RouterModule,NgImageSliderModule,
     MatToolbarModule,
     AppRoutingModule,
     MatCardModule,

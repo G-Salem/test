@@ -1,7 +1,10 @@
 .general{
-
+  background-image: url(../../../assets/back2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
-.ag-theme-alpine-dark{
+.ag-theme-balham{
   max-width: 80%;
   margin-left: 10%;
   width: 100%;
@@ -31,4 +34,9 @@
 }
 .form-control::placeholder {
   font-family: FontAwesome;
+}
+.btn-style-success{
+  border-radius: 20px;
+  background-color: #405065;
+  color: white;
 }

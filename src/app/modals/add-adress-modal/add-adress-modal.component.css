@@ -1,0 +1,26 @@
+h1{
+font-size: x-large;
+font-family: Arial, Helvetica, sans-serif;
+text-align: center;
+font: bolder;
+}
+.general{
+  width: 400px;
+  height: 600px;
+}
+.label{
+  font-size: medium;
+  font:bold;
+}
+button{
+color:white;
+  background-color: #3D4D61;
+  border-radius: 20px;
+  width: 100%;
+}
+
+mat-form-field{
+  height: 100%;
+  border-style: hidden;
+  width: 100%;
+}

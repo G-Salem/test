@@ -60,6 +60,9 @@ export class ModifierAdressModalComponent implements OnInit {
 
   }
 
+  close(){
+    this.dialog.closeAll();
 
+  }
 }
 

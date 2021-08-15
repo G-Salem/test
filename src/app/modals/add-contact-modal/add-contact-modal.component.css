@@ -16,8 +16,14 @@ h1{
   color:white;
     background-color: #3D4D61;
     border-radius: 20px;
-    width: 100%;
+    width: 48%;
   }
+  .buttonAnnuler{
+    color:white;
+      background-color: #b13131;
+      border-radius: 20px;
+      width: 48%;
+    }
 
   mat-form-field{
     height: 100%;

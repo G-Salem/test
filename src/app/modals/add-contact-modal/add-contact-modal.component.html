@@ -13,8 +13,10 @@
         <div mat-label>Saisir votre date de naissance</div>
         <input matInput placeholder="date de naissance" formControlName="DateNaissance">
       </mat-form-field>
-      <mat-dialog-actions>
-        <button mat-button type="submit" [disabled]="!contactForm.valid">Submit</button>
+      <mat-dialog-actions style="text-align: center;">
+
+        <button mat-button style="color: white;" type="submit" [disabled]="!contactForm.valid">Confirmer</button>
+        <button mat-button style="color: white;" class="buttonAnnuler" (click)="close()">Annuler</button>
       </mat-dialog-actions>
     </form>
   </div>

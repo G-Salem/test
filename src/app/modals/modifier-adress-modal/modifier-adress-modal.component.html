@@ -67,7 +67,8 @@
       </mat-form-field>
 <br>
     <div mat-dialog-actions>
-      <button mat-button type="submit" [disabled]="!adresseForm.valid">Submit</button>
+      <button mat-button style="color: white;" type="submit" [disabled]="!adresseForm.valid">Confirmer</button>
+      <button mat-button style="color: white;" class="buttonAnnuler" (click)="close()">Annuler</button>
     </div>
   </form>
 </div>

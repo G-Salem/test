@@ -52,6 +52,9 @@ export class AddAdressModalComponent implements OnInit {
 
 
   }
+close(){
+  this.dialog.closeAll();
 
+}
 
 }

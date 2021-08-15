@@ -41,5 +41,8 @@ export class AddContactModalComponent implements OnInit {
       }
     );
   }
+  close(){
+    this.dialog.closeAll();
 
+  }
 }
